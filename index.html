@@ -15,10 +15,10 @@
     <div id="line"></div>
 
 <!-- Table taken from https://www.sanwebe.com/2014/08/css-html-forms-designs -->
-    <div class="form-style-5">
+    <div id="form-style-5">
         <form>
         <fieldset>
-        <legend><span class="number">1</span> Candidate Info</legend>
+        <legend><span class="number">1</span> <p style="display:inline">Run for: </p><p id="demo" style="display:inline"></p></legend>
         <input type="text" name="field1" placeholder="Your Name *">
         <input type="email" name="field2" placeholder="Your Email *">
         <textarea name="field3" placeholder="About yourself"></textarea>
@@ -51,6 +51,8 @@
         </form>
     </div>
 <!-- End of Table -->
+
+<p id="demo"></p>
 
 <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
