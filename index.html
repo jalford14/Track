@@ -11,17 +11,21 @@
 </head>
 
 <body>
-    <div id="title">Track</div>
+    <div id ="holder">
+        <div id="title">Track</div>
+    </div>
+    
     <div id="line"></div>
 
 <!-- Table taken from https://www.sanwebe.com/2014/08/css-html-forms-designs -->
-    <div id="form-style-5">
+    <div class="form-style-5">
         <form>
         <fieldset>
         <legend><span class="number">1</span> <p style="display:inline">Run for: </p><p id="demo" style="display:inline"></p></legend>
-        <input type="text" name="field1" placeholder="Your Name *">
-        <input type="email" name="field2" placeholder="Your Email *">
-        <textarea name="field3" placeholder="About yourself"></textarea>
+        <input type="text" name="field1" placeholder="How many miles?">
+        <input type="email" name="field2" placeholder="Type of run">
+        <input type="email" name="field2" placeholder="Pace">
+        <textarea name="field3" placeholder="Details"></textarea>
         <label for="job">Interests:</label>
         <select id="job" name="field4">
         <optgroup label="Indoors">
@@ -53,8 +57,12 @@
 <!-- End of Table -->
 
 <p id="demo"></p>
+<div id="weather"></div>
+<button class="js-geolocation" style="display: none;">Use Your Location</button>
 
 <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/Users/acljdevteam/Documents/GitHub/Track/simpleWeather/jquery.simpleWeather.js"></script>
+    <script src="/Users/acljdevteam/Documents/GitHub/Track/simpleWeather/jquery.simpleWeather.min.js"></script>
     <script src="js/scripts.js"></script>
 </body>
