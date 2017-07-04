@@ -10,11 +10,10 @@
 
 </head>
 
-<body>
-    <div id ="holder">
+<body id="body">
+    <div id="holder">
         <div id="title">Track</div>
     </div>
-    
     <div id="line"></div>
 
 <!-- Table taken from https://www.sanwebe.com/2014/08/css-html-forms-designs -->
@@ -26,7 +25,13 @@
         <input type="email" name="field2" placeholder="Type of run">
         <input type="email" name="field2" placeholder="Pace">
         <textarea name="field3" placeholder="Details"></textarea>
-        <label for="job">Interests:</label>
+        <div id="weather_input">
+            <input type="temp" name="field1" placeholder="Temperature">
+            <input type="humidity" name="field2" placeholder="Humidity">
+        </div>
+        <input id="current_weather" type="button" name="vehicle" value="Use current weather?">
+        
+        <!-- <label for="job">Interests:</label>
         <select id="job" name="field4">
         <optgroup label="Indoors">
         <option value="fishkeeping">Fishkeeping</option>
@@ -45,20 +50,25 @@
         <option value="cycling">Cycling</option>
         <option value="other_outdoor">Other</option>
         </optgroup>
-        </select>      
+        </select> -->     
         </fieldset>
         <fieldset>
-        <legend><span class="number">2</span> Additional Info</legend>
-        <textarea name="field3" placeholder="About Your School"></textarea>
+        <legend><span class="number">2</span>Goal</legend>
+        <label for="job">Type:</label>
+        <select id="job" name="field4">
+        <optgroup label="Choose type of goal">
+        <option value="fishkeeping">Miles</option>
+        <option value="reading">Time</option>
+        </optgroup>
+        </select>
+        <input type="text" name="field1" placeholder="About Your School"></textarea>
         </fieldset>
-        <input type="submit" value="Apply" />
+        <input id="submit" type="button" value="Apply" />
         </form>
     </div>
 <!-- End of Table -->
-
-<p id="demo"></p>
-<div id="weather"></div>
-<button class="js-geolocation" style="display: none;">Use Your Location</button>
+<!-- <div id="weather"></div>
+<button class="js-geolocation" style="display: none;">Use Your Location</button> -->
 
 <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

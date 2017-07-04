@@ -1,7 +1,7 @@
 $(document).ready(function() {
     
     one();
-    
+    $(".form-style-5").hide().fadeIn();
 });
 function one() {
         $("#title")
@@ -17,12 +17,9 @@ function one() {
 function two () {
     $("#line").animate({width: "500"}, 750);
     /*$('#line').animate({ opacity: 1, top: "-10px" }, 'slow');*/
-    three();
 }
 
-function three() {
-    $(".form-style-5").hide().fadeIn();
-}
+
 
 // Docs at http://simpleweatherjs.com
 
@@ -70,7 +67,15 @@ function loadWeather(location, woeid) {
 }
 
 
-
+$("#submit").click(function () {
+  $("#body").append('<div id="container"> <p>Miles</p> <p>Miles</p> <p>Miles</p> <img src="images/edit_icon.png"> </div>');
+  // Preventing default action of the event
+  event.preventDefault();
+  // Getting the height of the document
+  var n = $(document).height();
+  $('html, body').animate({ scrollTop: n }, 500);
+});
+    
 
 
 //Function to get Date
@@ -79,9 +84,10 @@ var d = new Date();
 var month = d.getMonth()+1;
 var day = d.getDate();
 
-var output = d.getFullYear() + '/' +
-    ((''+month).length<2 ? '0' : '') + month + '/' +
-    ((''+day).length<2 ? '0' : '') + day;
+var output = ((''+month).length<2 ? '0' : '') + month + '/' +
+    ((''+day).length<2 ? '0' : '') + day + '/' +
+    d.getFullYear();
+    
 
 output = String(output);
 $("#demo").html(output);
