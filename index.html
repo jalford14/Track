@@ -19,40 +19,21 @@
 <!-- Table taken from https://www.sanwebe.com/2014/08/css-html-forms-designs -->
     <div class="form-style-5">
         <form>
+        <!-- Part 1 -->
         <fieldset>
         <legend><span class="number">1</span> <p style="display:inline">Run for: </p><p id="demo" style="display:inline"></p></legend>
-        <input type="text" name="field1" placeholder="How many miles?">
-        <input type="email" name="field2" placeholder="Type of run">
-        <input type="email" name="field2" placeholder="Pace">
-        <textarea name="field3" placeholder="Details"></textarea>
+        <input type="miles" name="field1" placeholder="How many miles?">
+        <input type="type" name="field2" placeholder="Type of run">
+        <input type="pace" name="field2" placeholder="Pace">
+        <textarea id="details" name="field3" placeholder="Details"></textarea>
         <div id="weather_input">
             <input id="temp" type="temp" name="field1" placeholder="Temperature">
             <input id="humidity" type="humidity" name="field2" placeholder="Humidity">
             <div id="loader"></div>
         </div>
-        <input id="current_weather" type="button" name="vehicle" value="Use current weather?">
-        
-        <!-- <label for="job">Interests:</label>
-        <select id="job" name="field4">
-        <optgroup label="Indoors">
-        <option value="fishkeeping">Fishkeeping</option>
-        <option value="reading">Reading</option>
-        <option value="boxing">Boxing</option>
-        <option value="debate">Debate</option>
-        <option value="gaming">Gaming</option>
-        <option value="snooker">Snooker</option>
-        <option value="other_indoor">Other</option>
-        </optgroup>
-        <optgroup label="Outdoors">
-        <option value="football">Football</option>
-        <option value="swimming">Swimming</option>
-        <option value="fishing">Fishing</option>
-        <option value="climbing">Climbing</option>
-        <option value="cycling">Cycling</option>
-        <option value="other_outdoor">Other</option>
-        </optgroup>
-        </select> -->     
+        <input id="current_weather" type="button" name="vehicle" value="Use current weather?">  
         </fieldset>
+        <!-- Part 2 -->
         <fieldset>
         <legend><span class="number">2</span>Goal</legend>
         <label for="job">Type:</label>
@@ -62,7 +43,7 @@
         <option value="reading">Time</option>
         </optgroup>
         </select>
-        <input type="text" name="field1" placeholder="About Your School"></textarea>
+        <input type="goal_detail" name="field1" placeholder="About your goal"></textarea>
         </fieldset>
         <input id="submit" type="button" value="Apply" />
         </form>

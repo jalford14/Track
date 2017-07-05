@@ -3,6 +3,50 @@ $(document).ready(function() {
     one();
     $(".form-style-5").hide().fadeIn();
     $("#loader").hide();
+
+    $("#submit").click(function () {
+      //Get input values
+      var miles = $('input[type=miles]').val();
+      var type = $('input[type=type]').val();
+      var pace = $('input[type=pace]').val();
+      var details = $('textarea#details').val();
+      var temp = $('input[type=temp]').val();
+      var humidity = $('input[type=humidity]').val();
+
+
+
+      $("#body").append('<div class="container"> <img src="images/edit_icon.png"> </div>');
+      
+      //Reset the fields 
+      $("input").val('');
+      $("textarea").val('');
+      $("#submit").val('Apply');
+      $("#current_weather").val('Use current weather?');
+
+      // Preventing default action of the event
+      event.preventDefault();
+      // Getting the height of the document
+      var n = $(document).height();
+      $('html, body').animate({ scrollTop: n }, 500);
+      if (miles != '') {
+        $(".container:last-child").append('<p>Miles: ' + miles + ' </p>');
+      }
+      if (type != '') {
+        $(".container:last-child").append('<p>Type: ' + type + ' </p>');
+      }
+      if (pace != '') {
+        $(".container:last-child").append('<p>Pace: ' + pace + ' </p>');
+      }
+      if (details != '') {
+        $(".container:last-child").append('<p>Details: ' + details + ' </p>');
+      }
+      if (temp != '') {
+        $(".container:last-child").append('<p>Temp: ' + temp + ' </p>');
+      }
+      if (humidity != '') {
+        $(".container:last-child").append('<p>Humidity: ' + humidity + ' </p>');
+      }
+    });
 });
 function one() {
         $("#title")
@@ -69,14 +113,7 @@ $("#current_weather").click(function() {
 
 
 
-$("#submit").click(function () {
-  $("#body").append('<div id="container"> <p>Miles</p> <p>Miles</p> <p>Miles</p> <img src="images/edit_icon.png"> </div>');
-  // Preventing default action of the event
-  event.preventDefault();
-  // Getting the height of the document
-  var n = $(document).height();
-  $('html, body').animate({ scrollTop: n }, 500);
-});
+
     
 
 
