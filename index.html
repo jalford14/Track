@@ -26,8 +26,9 @@
         <input type="email" name="field2" placeholder="Pace">
         <textarea name="field3" placeholder="Details"></textarea>
         <div id="weather_input">
-            <input type="temp" name="field1" placeholder="Temperature">
-            <input type="humidity" name="field2" placeholder="Humidity">
+            <input id="temp" type="temp" name="field1" placeholder="Temperature">
+            <input id="humidity" type="humidity" name="field2" placeholder="Humidity">
+            <div id="loader"></div>
         </div>
         <input id="current_weather" type="button" name="vehicle" value="Use current weather?">
         
@@ -67,8 +68,8 @@
         </form>
     </div>
 <!-- End of Table -->
-<!-- <div id="weather"></div>
-<button class="js-geolocation" style="display: none;">Use Your Location</button> -->
+<div id="weather"></div>
+<button class="js-geolocation" style="display: none;">Use Your Location</button>
 
 <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

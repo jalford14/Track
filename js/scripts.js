@@ -2,6 +2,7 @@ $(document).ready(function() {
     
     one();
     $(".form-style-5").hide().fadeIn();
+    $("#loader").hide();
 });
 function one() {
         $("#title")
@@ -16,7 +17,6 @@ function one() {
 
 function two () {
     $("#line").animate({width: "500"}, 750);
-    /*$('#line').animate({ opacity: 1, top: "-10px" }, 'slow');*/
 }
 
 
@@ -25,13 +25,13 @@ function two () {
 
 /* Does your browser support geolocation? */
 if ("geolocation" in navigator) {
-  $('.js-geolocation').show(); 
+  $("#current_weather").show(); 
 } else {
-  $('.js-geolocation').hide();
+  $("#current_weather").hide();
 }
 
 /* Where in the world are you? */
-$('.js-geolocation').on('click', function() {
+$("#current_weather").on('click', function() {
   navigator.geolocation.getCurrentPosition(function(position) {
     loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
   });
@@ -43,28 +43,30 @@ $('.js-geolocation').on('click', function() {
 * Austin WOEID: 2357536
 */
 $(document).ready(function() {
-  loadWeather('Seattle',''); //@params location, woeid
+  //loadWeather('Seattle',''); //@params location, woeid
 });
 
-function loadWeather(location, woeid) {
-  $.simpleWeather({
-    location: location,
-    woeid: woeid,
-    unit: 'f',
-    success: function(weather) {
-      html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-      html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-      html += '<li class="currently">'+weather.currently+'</li>';
-      //html += '<li>'+weather.alt.temp+'&deg;C</li></ul>';
-      html += '<li>'+weather.humidity+'&#37</li></ul>';  
-      
-      $("#weather").html(html);
-    },
-    error: function(error) {
-      $("#weather").html('<p>'+error+'</p>');
-    }
-  });
-}
+$("#current_weather").click(function() {
+  loadWeather('','');
+})
+  function loadWeather(location, woeid) {
+    $("#loader").show();
+    $.simpleWeather({
+      location: location,
+      woeid: woeid,
+      unit: 'f',
+      success: function(weather) {
+        $("#temp").val(weather.temp);
+        $("#humidity").val(weather.humidity);
+        $("#loader").hide();
+      },
+      error: function(error) {
+        $("#current_weather").html('<p>'+error+'</p>');
+      }
+    });
+  }
+
+
 
 
 $("#submit").click(function () {
