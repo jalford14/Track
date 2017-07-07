@@ -14,9 +14,6 @@ $(document).ready(function() {
       var humidity = $('input[type=humidity]').val();
 
 
-
-      $("#body").append('<div class="container"> <img src="images/edit_icon.png"> </div>');
-      
       //Reset the fields 
       $("input").val('');
       $("textarea").val('');
@@ -28,24 +25,50 @@ $(document).ready(function() {
       // Getting the height of the document
       var n = $(document).height();
       $('html, body').animate({ scrollTop: n }, 500);
-      if (miles != '') {
-        $(".container:last-child").append('<p>Miles: ' + miles + ' </p>');
+
+      var d = new Date();
+
+      var month = d.getMonth()+1;
+      var day = d.getDate();
+
+      var output = ((''+month).length<2 ? '0' : '') + month + '/' +
+          ((''+day).length<2 ? '0' : '') + day + '/' +
+          d.getFullYear();
+          
+
+      output = String(output);
+      
+
+
+      //Checks the input values of the fields
+      var empty = $(this).parent().find("input").filter(function() {
+        return this.value === "";
+      });
+
+      if (!empty.length) {
+        alert("test");
+        $("#body").append('<div class="container">  </div>');
+        $(".container:last-child").append('<p id="date_header">Run for: ' + output + ' <a target="_blank" href="https://www.w3schools.com"> <img src="images/edit_icon.png" alt="Edit"> </a> </p> ');
+
+        if (miles != '') { $(".container:last-child").append('<p>Miles: ' + miles + ' </p>');
+        }
+        if (type != '') {
+          $(".container:last-child").append('<p>Type: ' + type + ' </p>');
+        }
+        if (pace != '') {
+          $(".container:last-child").append('<p>Pace: ' + pace + ' </p>');
+        }
+        if (details != '') {
+          $(".container:last-child").append('<p>Details: ' + details + ' </p>');
+        }
+        if (temp != '') {
+          $(".container:last-child").append('<p>Temp: ' + temp + ' </p>');
+        }
+        if (humidity != '') {
+          $(".container:last-child").append('<p>Humidity: ' + humidity + ' </p>');
+        }
       }
-      if (type != '') {
-        $(".container:last-child").append('<p>Type: ' + type + ' </p>');
-      }
-      if (pace != '') {
-        $(".container:last-child").append('<p>Pace: ' + pace + ' </p>');
-      }
-      if (details != '') {
-        $(".container:last-child").append('<p>Details: ' + details + ' </p>');
-      }
-      if (temp != '') {
-        $(".container:last-child").append('<p>Temp: ' + temp + ' </p>');
-      }
-      if (humidity != '') {
-        $(".container:last-child").append('<p>Humidity: ' + humidity + ' </p>');
-      }
+      
     });
 });
 function one() {
@@ -94,6 +117,7 @@ $("#current_weather").click(function() {
   loadWeather('','');
 })
   function loadWeather(location, woeid) {
+    $("#current_weather").hide();
     $("#loader").show();
     $.simpleWeather({
       location: location,
@@ -102,7 +126,8 @@ $("#current_weather").click(function() {
       success: function(weather) {
         $("#temp").val(weather.temp);
         $("#humidity").val(weather.humidity);
-        $("#loader").hide();
+        $("#loader").fadeOut("fast");
+        $("#current_weather").fadeIn("fast");
       },
       error: function(error) {
         $("#current_weather").html('<p>'+error+'</p>');
@@ -110,7 +135,9 @@ $("#current_weather").click(function() {
     });
   }
 
-
+function fade() {
+  $
+}
 
 
 
