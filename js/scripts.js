@@ -1,9 +1,12 @@
 $(document).ready(function() {
     
+    //Opening animation
     one();
     $(".form-style-5").hide().fadeIn();
     $("#loader").hide();
 
+
+    //Submit form
     $("#submit").click(function () {
       //Get input values
       var miles = $('input[type=miles]').val();
@@ -13,40 +16,34 @@ $(document).ready(function() {
       var temp = $('input[type=temp]').val();
       var humidity = $('input[type=humidity]').val();
 
+      //Puts all the values in an arrary to check if it's empty
+      var values = [miles, type, pace, details, humidity];
+      var empty = true;
 
-      //Reset the fields 
-      $("input").val('');
-      $("textarea").val('');
-      $("#submit").val('Apply');
-      $("#current_weather").val('Use current weather?');
+      //If an input is not empty, then we can make a summary tab
+      for (i = 0; i < values.length; i++) {
+        if (values[i] != '') {
+          empty = false;
+        }
+      }
 
-      // Preventing default action of the event
+      //Scrolls down when new summary tab is created
       event.preventDefault();
-      // Getting the height of the document
       var n = $(document).height();
       $('html, body').animate({ scrollTop: n }, 500);
 
-      var d = new Date();
 
+      //Gets date
+      var d = new Date();
       var month = d.getMonth()+1;
       var day = d.getDate();
-
       var output = ((''+month).length<2 ? '0' : '') + month + '/' +
           ((''+day).length<2 ? '0' : '') + day + '/' +
           d.getFullYear();
-          
-
       output = String(output);
-      
 
 
-      //Checks the input values of the fields
-      var empty = $(this).parent().find("input").filter(function() {
-        return this.value === "";
-      });
-
-      if (!empty.length) {
-        alert("test");
+      if (!empty) { 
         $("#body").append('<div class="container">  </div>');
         $(".container:last-child").append('<p id="date_header">Run for: ' + output + ' <a target="_blank" href="https://www.w3schools.com"> <img src="images/edit_icon.png" alt="Edit"> </a> </p> ');
 
@@ -68,7 +65,12 @@ $(document).ready(function() {
           $(".container:last-child").append('<p>Humidity: ' + humidity + ' </p>');
         }
       }
-      
+
+      //Reset the fields 
+      $("input").val('');
+      $("textarea").val('');
+      $("#submit").val('Apply');
+      $("#current_weather").val('Use current weather?');
     });
 });
 function one() {
