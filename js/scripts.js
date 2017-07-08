@@ -4,6 +4,7 @@ $(document).ready(function() {
     one();
     $(".form-style-5").hide().fadeIn();
     $("#loader").hide();
+    $("#warning").hide();
 
 
     //Submit form
@@ -44,10 +45,12 @@ $(document).ready(function() {
 
 
       if (!empty) { 
+        $("#warning").slideUp();
         $("#body").append('<div class="container">  </div>');
         $(".container:last-child").append('<p id="date_header">Run for: ' + output + ' <a target="_blank" href="https://www.w3schools.com"> <img src="images/edit_icon.png" alt="Edit"> </a> </p> ');
 
-        if (miles != '') { $(".container:last-child").append('<p>Miles: ' + miles + ' </p>');
+        if (miles != '') { 
+          $(".container:last-child").append('<p>Miles: ' + miles + ' </p>');
         }
         if (type != '') {
           $(".container:last-child").append('<p>Type: ' + type + ' </p>');
@@ -65,6 +68,10 @@ $(document).ready(function() {
           $(".container:last-child").append('<p>Humidity: ' + humidity + ' </p>');
         }
       }
+      else {
+        $("#warning").slideDown("fast");
+      }
+      
 
       //Reset the fields 
       $("input").val('');

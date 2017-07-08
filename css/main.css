@@ -208,3 +208,7 @@ button:focus {
     100% { transform: rotate(360deg); }
 }
 
+.form-style-5 #warning {
+    color: red;
+    text-align: center;
+}
