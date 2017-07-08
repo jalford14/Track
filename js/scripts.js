@@ -1,7 +1,7 @@
 $(document).ready(function() {
     
     //Opening animation
-    one();
+    titleLoad();
     $(".form-style-5").hide().fadeIn();
     $("#loader").hide();
     $("#warning").hide();
@@ -45,9 +45,9 @@ $(document).ready(function() {
 
 
       if (!empty) { 
-        $("#warning").slideUp();
-        $("#body").append('<div class="container">  </div>');
-        $(".container:last-child").append('<p id="date_header">Run for: ' + output + ' <a target="_blank" href="https://www.w3schools.com"> <img src="images/edit_icon.png" alt="Edit"> </a> </p> ');
+        $("#warning").slideUp("fast");
+        $("#body").append('<div class="container"> </div>');
+        $(".container:last-child").append('<p id="date_header">Run for: ' + output + ' <a target="_blank" href="https://www.w3schools.com"> <img id="edit_icon" src="images/edit_icon.png" alt="Edit"> </a> </p> ');
 
         if (miles != '') { 
           $(".container:last-child").append('<p>Miles: ' + miles + ' </p>');
@@ -58,15 +58,24 @@ $(document).ready(function() {
         if (pace != '') {
           $(".container:last-child").append('<p>Pace: ' + pace + ' </p>');
         }
-        if (details != '') {
-          $(".container:last-child").append('<p>Details: ' + details + ' </p>');
+        if (temp != '' || humidity != '' || details != '') {
+          $(".container:last-child").append('<p id="details_header">Additional Details</p>');
         }
         if (temp != '') {
-          $(".container:last-child").append('<p>Temp: ' + temp + ' </p>');
+          $(".container:last-child").append('<p class="advanced">Temperature: ' + temp + ' </p>');
         }
         if (humidity != '') {
-          $(".container:last-child").append('<p>Humidity: ' + humidity + ' </p>');
+          $(".container:last-child").append('<p class="advanced">Humidity: ' + humidity + ' <br></p>');
         }
+        if (details != '') {
+          $(".container:last-child").append('<p class="advanced">Details: ' + details + ' </p>');
+        }
+        //Apends toggled arrows to the bottom
+        $(".container:last-child").append(
+          '<div id="arrow"><a  href="#" onClick="return false;">'+ 
+          '<img src="images/down_arrow.png"/>'+
+          '<img src="images/up_arrow.png" style="display:none"/></a></div>'
+        );
       }
       else {
         $("#warning").slideDown("fast");
@@ -79,8 +88,17 @@ $(document).ready(function() {
       $("#submit").val('Apply');
       $("#current_weather").val('Use current weather?');
     });
+
+    $(".advanced").hide();
+
+    $(document).on('click', '#arrow',
+    function() {
+      $(this).find('img').toggle();
+      $(".advanced").show();
+    });
 });
-function one() {
+
+function titleLoad() {
         $("#title")
         .hide()
         .slideDown(750)
@@ -88,10 +106,10 @@ function one() {
         { opacity: 1 },
         { queue: false, duration: 'slow' }
     )
-    two();
+    lineLoad();
 }
 
-function two () {
+function lineLoad () {
     $("#line").animate({width: "500"}, 750);
 }
 
@@ -143,11 +161,6 @@ $("#current_weather").click(function() {
       }
     });
   }
-
-function fade() {
-  $
-}
-
 
 
     

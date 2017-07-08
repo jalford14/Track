@@ -171,21 +171,71 @@ button:focus {
     border-radius: 8px;
     margin-top: 30px;
     margin-bottom: 30px;
+    padding-bottom: 30px;
+    position: relative;
+    font-size: 18px;
+}
+
+/* CSS for additional details*/
+
+.container #details_header {
+    border-bottom: solid white 2px;
+    width: 150px;
+    display: block;
+    margin-bottom: 10px;
+    padding: 3px;
+}
+
+.container .advanced {
+    display: block;
+}
+
+.container #arrow img {
+    width: 3%;
+    height: 3%;
+    margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+img {
+    /*Image rotate properties*/
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+    border: solid black 1px;
+}
+
+.container #arrow {
+    margin-top: 50px;
+    margin: 0;
+    padding-top: 50px;
+    position: absolute;
+    bottom: 0;
 }
 
 .container p {
-    display: inline;
+    display: inline-block;
     font-family: 'Open Sans';
     font-weight: 300;
-    color: white
+    color: white;
+    padding-right: 20px;
+    margin-top: 0px;
 }
 
 .container #date_header {
     margin-top: 0;
     display: block;
+    font-size: 20px;
+    font-weight: 400;
 }
 
-.container img {
+.container #edit_icon {
     float: right;
     clear: right;
     width: 18px;
