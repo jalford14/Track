@@ -73,9 +73,12 @@ $(document).ready(function() {
         //Apends toggled arrows to the bottom
         $(".container:last-child").append(
           '<div id="arrow"><a  href="#" onClick="return false;">'+ 
-          '<img src="images/down_arrow.png"/>'+
-          '<img src="images/up_arrow.png" style="display:none"/></a></div>'
+            '<img src="images/down_arrow.png"/>'+
+            '<img src="images/up_arrow.png" style="display:none"/></a>' +
+          '</div>'
         );
+        $(".container #details_header").hide();
+        $(".advanced").hide();
       }
       else {
         $("#warning").slideDown("fast");
@@ -89,12 +92,11 @@ $(document).ready(function() {
       $("#current_weather").val('Use current weather?');
     });
 
-    $(".advanced").hide();
-
     $(document).on('click', '#arrow',
     function() {
       $(this).find('img').toggle();
-      $(".advanced").show();
+      $(this).parent().find('.advanced').slideToggle();
+      $(this).parent().find('#details_header').slideToggle();
     });
 });
 
