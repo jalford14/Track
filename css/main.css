@@ -176,6 +176,12 @@ button:focus {
     font-size: 18px;
 }
 
+.container .stat_title, .container .add_title {
+    font-weight: 400;
+    margin: 0;
+    padding-right: 5px;
+}
+
 /* CSS for additional details*/
 
 .container #details_header {
@@ -189,6 +195,24 @@ button:focus {
 .container .advanced {
     display: block;
 }
+
+.container #block {
+    display: block;
+    margin: 10px;
+}
+
+.container .details_stat{
+    display: inline;
+    font-weight: 400;
+
+} 
+
+.container #description {
+    display: inline;
+    line-height: 25px;
+}
+
+
 
 .container #arrow img {
     width: 3%;

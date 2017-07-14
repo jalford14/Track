@@ -1,6 +1,6 @@
 $(document).ready(function() {
     
-    //Opening animation
+    //Opening animation and general setup
     titleLoad();
     $(".form-style-5").hide().fadeIn();
     $("#loader").hide();
@@ -43,32 +43,32 @@ $(document).ready(function() {
           d.getFullYear();
       output = String(output);
 
-
+      //Appends data from form to summary tabs
       if (!empty) { 
         $("#warning").slideUp("fast");
         $("#body").append('<div class="container"> </div>');
-        $(".container:last-child").append('<p id="date_header">Run for: ' + output + ' <a target="_blank" href="https://www.w3schools.com"> <img id="edit_icon" src="images/edit_icon.png" alt="Edit"> </a> </p> ');
+        $(".container:last-child").append('<p id="date_header">Run for: ' + output + ' <a href="#" onClick="return false;"> <img id="edit_icon" src="images/edit_icon.png" alt="Edit"> </a> </p> ');
 
         if (miles != '') { 
-          $(".container:last-child").append('<p>Miles: ' + miles + ' </p>');
+          $(".container:last-child").append('<p class ="stat_title">Miles: <p>' + miles + ' </p> </p>');
         }
         if (type != '') {
-          $(".container:last-child").append('<p>Type: ' + type + ' </p>');
+          $(".container:last-child").append('<p class ="stat_title">Type: <p>' + type + ' </p> </p>');
         }
         if (pace != '') {
-          $(".container:last-child").append('<p>Pace: ' + pace + ' </p>');
+          $(".container:last-child").append('<p class ="stat_title">Pace: <p>' + pace + ' </p> </p>');
         }
         if (temp != '' || humidity != '' || details != '') {
-          $(".container:last-child").append('<p id="details_header">Additional Details</p>');
+          $(".container:last-child").append('<p id="details_header"> Additional Details</p>');
         }
         if (temp != '') {
-          $(".container:last-child").append('<p class="advanced">Temperature: ' + temp + ' </p>');
+          $(".container:last-child").append('<p class="add_title">Temperature: <p class="info">' + temp + ' &#xb0;</p>');
         }
         if (humidity != '') {
-          $(".container:last-child").append('<p class="advanced">Humidity: ' + humidity + ' <br></p>');
+          $(".container:last-child").append('<p class="add_title">Humidity: <p class="info">' + humidity + ' </p> </p>');
         }
         if (details != '') {
-          $(".container:last-child").append('<p class="advanced">Details: ' + details + ' </p>');
+          $(".container:last-child").append('<p id="block"></p> <p class="add_title">Details: </p> <p id="details">' + details + ' </p>');
         }
         //Apends toggled arrows to the bottom
         $(".container:last-child").append(
@@ -77,8 +77,12 @@ $(document).ready(function() {
             '<img src="images/up_arrow.png" style="display:none"/></a>' +
           '</div>'
         );
-        $(".container #details_header").hide();
-        $(".advanced").hide();
+        $(".container:last-child").find("#details_header").hide();
+        $(".container:last-child").find(".add_title").hide();
+        $(".container:last-child").find("#block").hide();
+        $(".container:last-child").find(".info").hide();
+        $(".container:last-child").find("#description").hide();
+        $(".container:last-child").find("#details").hide();
       }
       else {
         $("#warning").slideDown("fast");
@@ -92,14 +96,20 @@ $(document).ready(function() {
       $("#current_weather").val('Use current weather?');
     });
 
+    //Toggles between detailed view of summary tabs
     $(document).on('click', '#arrow',
     function() {
       $(this).find('img').toggle();
-      $(this).parent().find('.advanced').slideToggle();
+      $(this).parent().find('.add_title').slideToggle();
+      $(this).parent().find('#block').slideToggle();
       $(this).parent().find('#details_header').slideToggle();
+      $(this).parent().find('.info').slideToggle();
+      $(this).parent().find('#description').slideToggle();
+      $(this).parent().find('#details').slideToggle();
     });
 });
 
+//Functions that animate the title and lines.
 function titleLoad() {
         $("#title")
         .hide()
@@ -115,8 +125,22 @@ function lineLoad () {
     $("#line").animate({width: "500"}, 750);
 }
 
+//Functionality for edit button
+$(document).on("click", "#edit_icon", function () {
+    var currElmModelAttr = $(this).find('.advanced');
+    $this = $(this);
+    var input = $('<input />', {
+        'type': 'text',
+            'name': currElmModelAttr,
+            'style': 'width:100px',
+            'class': 'datePicker',
+            'value': $(this).text()
+    });
+    $(".container").replaceWith(input);
+});
 
 
+//Weather plugin
 // Docs at http://simpleweatherjs.com
 
 /* Does your browser support geolocation? */
@@ -131,15 +155,6 @@ $("#current_weather").on('click', function() {
   navigator.geolocation.getCurrentPosition(function(position) {
     loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
   });
-});
-
-/* 
-* Test Locations
-* Austin lat/long: 30.2676,-97.74298
-* Austin WOEID: 2357536
-*/
-$(document).ready(function() {
-  //loadWeather('Seattle',''); //@params location, woeid
 });
 
 $("#current_weather").click(function() {
@@ -163,10 +178,6 @@ $("#current_weather").click(function() {
       }
     });
   }
-
-
-    
-
 
 //Function to get Date
 var d = new Date();
