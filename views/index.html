@@ -5,9 +5,9 @@
 <head>
 
 		<title>Track</title>
-        <link rel="icon" href="images/runShoe.png">
-		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="icon" href="../images/runShoe.png">
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		<link rel="stylesheet" type="text/css" href="/css/normalize.css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,700|Source+Sans+Pro:300" rel="stylesheet">
 
 </head>
@@ -25,7 +25,15 @@
         <fieldset>
         <legend><span class="number">1</span> <p style="display:inline">Run for: </p><p id="demo" style="display:inline"></p></legend>
         <input type="miles" name="field1" placeholder="How many miles?">
-        <input type="type" name="field2" placeholder="Type of run">
+        <!-- <input type="type" name="field2" placeholder="Type of run"> -->
+        <select id = "runType" name="field2" placeholder="Type of run">
+            <option selected="selected" class="placeholder">Type of run</option>
+            <option value="Easy">Easy</option>
+            <option value="Long Run">Long Run</option>
+            <option value="Tempo">Tempo</option>
+            <option value="Fartlek">Fartlek</option>
+            <option value="Speed Workout">Speed Workout</option>
+          </select>
         <input type="pace" name="field2" placeholder="Pace">
         <textarea id="details" name="field3" placeholder="Details"></textarea>
         <div id="weather_input">
@@ -42,14 +50,14 @@
         </form>
     </div>
 <!-- End of Table -->
-<div onClick="this.contentEditable='true';">
+<!-- <div onClick="this.contentEditable='true';">
     lorem ipsum dolor lorem ipsum dolorlorem ipsum dolor
-</div>
+</div> -->
 
 <div class="container"> 
     <p id="date_header">Run for: 07/08/2017 
         <a href="#" onClick="return false;"> 
-            <img id="edit_icon" src="images/edit_icon.png" alt="Edit"> 
+            <img id="edit_icon" src="../images/edit_icon.png" alt="Edit"> 
         </a> 
     </p> 
 
@@ -76,8 +84,8 @@
         <p id="description">Felt pretty good. Ran negative splits. Kness hurt a little bit but nothing too bad. od. Ran negative splits. Kness hurt a little bit but nothing too bad. od. Ran negative splits. Kness hurt a little bit but nothing too bad.s</p> 
     <div id="arrow"> 
         <a href="#" onClick="return false;">
-            <img src="images/down_arrow.png">
-            <img src="images/up_arrow.png" style="display:none">
+            <img src="../images/down_arrow.png">
+            <img src="../images/up_arrow.png" style="display:none">
         </a>
     </div>
 </div>
@@ -87,7 +95,7 @@
 
 <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/Users/acljdevteam/Documents/GitHub/Track/simpleWeather/jquery.simpleWeather.js"></script>
-    <script src="/Users/acljdevteam/Documents/GitHub/Track/simpleWeather/jquery.simpleWeather.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="simpleWeather/jquery.simpleWeather.js"></script>
+    <script src="simpleWeather/jquery.simpleWeather.min.js"></script>
+    <script src="../js/scripts.js"></script>
 </body>

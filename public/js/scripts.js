@@ -11,7 +11,12 @@ $(document).ready(function() {
     $("#submit").click(function () {
       //Get input values
       var miles = $('input[type=miles]').val();
-      var type = $('input[type=type]').val();
+      if ($('#runType').val() != "Type of run") {
+        var type = $('#runType').val();
+      }
+      else {
+        type = '';
+      }      
       var pace = $('input[type=pace]').val();
       var details = $('textarea#details').val();
       var temp = $('input[type=temp]').val();

@@ -286,3 +286,7 @@ img {
     color: red;
     text-align: center;
 }
+
+.placeholder {
+    display: none;
+}

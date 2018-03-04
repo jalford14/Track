@@ -1,0 +1,26 @@
+{
+  "name": "track",
+  "version": "1.0.0",
+  "description": "Application that tracks how many miles you've run in a week along with some other features.",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jalford14/Track.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jalford14/Track/issues"
+  },
+  "homepage": "https://github.com/jalford14/Track#readme"
+}
