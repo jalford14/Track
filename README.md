@@ -7,15 +7,15 @@ Track is very easy to set up and install! Before you get started, make sure you 
 https://nodejs.org/en/download/
 
 Once you have Track and node downloaded, make your way to the root file where app.js is located. Track uses Express so you will have to run 
-
+```
 npm install express
-
+```
 at this location.
 
 Then run 
-
+```
 node app.js
-
+```
 and make you way to localhost:3000 in whatever browser you choose.
 
 Enjoy!
