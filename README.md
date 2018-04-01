@@ -10,9 +10,7 @@ Once you have Track and node downloaded, make your way to the root file where ap
 ```
 npm install express
 ```
-at this location.
-
-Then run 
+at this location. Then run 
 ```
 node app.js
 ```
@@ -20,4 +18,6 @@ and make you way to localhost:3000 in whatever browser you choose.
 
 Enjoy!
 
+
+# Screenshot
 ![Alt text](/track.png?raw=true)
